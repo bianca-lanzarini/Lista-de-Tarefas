@@ -1,16 +1,18 @@
-﻿using System;
+﻿using domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain
+namespace domain.Entities
 {
-    class Tarefa
+    public class Tarefa
     {
+        public int Id { get; private set; }
         public string Titulo { get; private set; }
         public string Descricao { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public DateTime Prazo { get; private set; }
-        public char Status { get; set; } // farei uma classe ENUM para representar os possíveis status da tarefa
+        public StatusTarefa Status { get; set; } // farei uma classe ENUM para representar os possíveis status da tarefa
 
         public Tarefa (string titulo, string descricao, DateTime prazo)
         {
@@ -18,7 +20,7 @@ namespace domain
             Descricao = descricao;
             DataCriacao = DateTime.Now.Date;
             Prazo = prazo;
-            Status = 'P';
+            Status = StatusTarefa.Pendente;
         }
     }
 }
